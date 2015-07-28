@@ -3,18 +3,16 @@
 
 import os
 from wordlists.gender_words import MALE_WORDS, FEMALE_WORDS
-import string #i tried using string.punctuation to strip out punctuation and it didn't work
 from collections import defaultdict
 
 def word_counter(text): #opens the file and reads file. 
-    
-    punc = ("!()-[]{};:'\"\,<>./?@#$%^&*_~") #removing punctuation is not working
+
     word_dict = {}
     
-    #words = "".join(l for l in text if l not in string.punctuation)
     words = text.lower().split() #splits the text into separate words
     
     for word in words:
+        
         if word not in word_dict:
             word_dict[word] = 1
         else:
@@ -38,7 +36,6 @@ def gender(clean_text, gender_words_set):
             
     return gender_dict
      
-
 
 def both_genders(clean_text):
 
