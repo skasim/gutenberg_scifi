@@ -36,15 +36,14 @@ if __name__ == '__main__':
 	
 	clean_text = remove_punc_html(text)
 	
-	count_words = word_counter(clean_text)
+	#count_words = word_counter(clean_text)
 	
-	#gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
+	gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
 	
-	#print gender(clean_text, gender_words_set)
+	print gender(clean_text, gender_words_set)
 	
-	#print both_genders(clean_text)
+	print both_genders(clean_text)
 		
-	#print count_words
 	
 	
 	
