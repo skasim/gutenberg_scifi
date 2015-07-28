@@ -12,13 +12,14 @@ from collections import defaultdict
 
 def main():
     
-    filenames = open_several_files(files)
+    #filenames = open_several_files(files)
     
-    text = read_file(file)
+    #text = read_file(file)
     
-    clean_text = remove_punc_html(text)
+    #clean_text = remove_punc_html(text)
     
     #word_counter(text)
+    pass
      
     
 
@@ -37,11 +38,11 @@ if __name__ == '__main__':
 	
 	count_words = word_counter(clean_text)
 	
-	gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
+	#gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
 	
-	print gender(clean_text, gender_words_set)
+	#print gender(clean_text, gender_words_set)
 	
-	print both_genders(clean_text)
+	#print both_genders(clean_text)
 		
 	#print count_words
 	

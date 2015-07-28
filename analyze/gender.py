@@ -20,8 +20,8 @@ def word_counter(text): #opens the file and reads file.
     
     for key in sorted(word_dict, key = word_dict.get, reverse = False):
             print "%s: %s" % (key, word_dict[key]) #if i return this, it only prints one line
-    
-    return word_dict  
+            
+    return word_dict
 
 
 def gender(clean_text, gender_words_set):
@@ -35,6 +35,7 @@ def gender(clean_text, gender_words_set):
             gender_dict[word] += 1
             
     return gender_dict
+    
      
 
 def both_genders(clean_text):
@@ -56,4 +57,3 @@ def both_genders(clean_text):
 
 if __name__ == '__main__':
 	print MALE_WORDS, FEMALE_WORDS
-    #print word_dict

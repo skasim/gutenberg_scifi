@@ -5,6 +5,8 @@ import os
 from bs4 import BeautifulSoup
 from string import punctuation
 import string
+import nltk
+from nltk.corpus import stopwords
 
 
 def read_file(filename):
@@ -16,9 +18,14 @@ def read_file(filename):
     return text
     
 def remove_punc_html(text):
+   
     exclude = set(string.punctuation)
     text =  ''.join(BeautifulSoup(text, "html.parser").findAll(text = True)) 
     text = ''.join(word for word in text if word not in exclude)
+    text = ' '.join(word for word in text.split() if word not in stopwords.words('english'))
+    #the above is removing stopwords, not sure if there is a more efficient way to write this out
+    #is this correct: split() splits a string by the white space into an item in a list and x.join, joins an item into a string at x[or whatever else is there]
+    
     return text
     
     
