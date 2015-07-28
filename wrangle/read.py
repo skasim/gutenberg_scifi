@@ -3,6 +3,7 @@
 
 import os
 from bs4 import BeautifulSoup
+from string import punctuation
 import string
 
 
@@ -15,9 +16,11 @@ def read_file(filename):
     return text
     
 def remove_html(text):
-    
+    exclude = set(string.punctuation)
     text =  ''.join(BeautifulSoup(text, "html.parser").findAll(text = True)) 
+    text = ''.join(word for word in text if word not in exclude)
     return text
+    
     
 def remove_punc(text):
 
