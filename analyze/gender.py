@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # analyze gendered words
 
+from __future__ import division
 import os
 from wordlists.gender_words import MALE_WORDS, FEMALE_WORDS
 from collections import defaultdict
+
 
 def word_counter(text): #opens the file and reads file. 
 
@@ -52,8 +54,16 @@ def both_genders(clean_text):
             
     male_sum = sum(male_dict.values())
     female_sum = sum(female_dict.values())
+    
     return male_sum, female_sum #did you want it to be more like ((male sum: X), (female sum:Y)). i am not sure i know how to do that
 
+def gender_ratio(clean_text):
+    
+    gender_sums = both_genders(clean_text)
+    male_sum, female_sum = gender_sums
+    gender_ratio = round(male_sum/female_sum,2)
+    
+    return gender_ratio
 
 if __name__ == '__main__':
 	print MALE_WORDS, FEMALE_WORDS
