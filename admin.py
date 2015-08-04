@@ -19,7 +19,7 @@ def main():
     filenames = open_several_files(files)
     
     for afile in filenames:
-        text_name = 'data/' + afile
+        text_name = 'data/' + afile #-->  see below for suggestion on being more efficient
         text = read_file(text_name)
         clean_text = remove_punc_html(text)
         #count_words = word_counter(clean_text)
@@ -36,7 +36,7 @@ def main():
 
 # It's a bit slow since we need to instantiate the NLTK stopwords model each time.
 # Can we be more efficient and check if we have already processed this?
-# We need to create a data store (precursor to database) for dict-like objects (ie json) that we create
+# We need to create a data store (precursor to database) for dict-like objects (ie json)
 # See engine/ for stubs of functions
 
 
