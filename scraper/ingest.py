@@ -14,7 +14,9 @@ def open_file(files): #downloads the book from Project Guttenburg and writes to 
     text_name = 'data/' + text_name
 
     if os.path.isfile(text_name):
-        print "%s file already here" % text_name
+        #print "%s file already here" % text_name # ->> NJD
+
+        pass
         
     else:
         # print url, text_name
@@ -22,7 +24,7 @@ def open_file(files): #downloads the book from Project Guttenburg and writes to 
         text_file = text_file.content
         file_ref = open(text_name,"w+")
         file_ref.write(text_file)
-        print '%s file downloaded' % text_name
+        # print '%s file downloaded' % text_name # ->> NJD
     
     return text_name     
 

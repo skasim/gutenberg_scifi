@@ -13,6 +13,9 @@ from collections import defaultdict
 
 def main():
     
+    report = {}
+
+
     filenames = open_several_files(files)
     
     for afile in filenames:
@@ -20,7 +23,7 @@ def main():
         text = read_file(text_name)
         clean_text = remove_punc_html(text)
         #count_words = word_counter(clean_text)
-        gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
+        gender_words_set = MALE_WORDS.union(FEMALE_WORDS) # ->> Could you do this in gender.py? 
         print "This is the gender dict for " + text_name
         print gender(clean_text, gender_words_set)
         print "Sum of male gendered words, Sum of female gendered words:"
@@ -29,17 +32,22 @@ def main():
         print gender_ratio(clean_text)
      
     
+### TO DO:
+
+# It's a bit slow since we need to instantiate the NLTK stopwords model each time.
+# Can we be more efficient and check if we have already processed this?
+# We need to create a data store (precursor to database) for dict-like objects (ie json) that we create
+# See engine/ for stubs of functions
+
 
 if __name__ == '__main__':
-	
 
-	files = [['https://www.gutenberg.org/files/84/84-h/84-h.htm', 'frank_text.txt'],
+
+    files = [['https://www.gutenberg.org/files/84/84-h/84-h.htm', 'frank_text.txt'],
         ['https://www.gutenberg.org/cache/epub/42/pg42.html', 'dr_JEKYLL.txt']
         ]
 
-	assert open_several_files(files) == ['frank_text.txt', 'dr_JEKYLL.txt']
-	
-		
-main()	
-	
-	
+    assert open_several_files(files) == ['frank_text.txt', 'dr_JEKYLL.txt']
+
+
+    main()
