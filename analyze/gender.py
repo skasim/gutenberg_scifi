@@ -8,6 +8,13 @@ from collections import defaultdict
 
 
 def word_counter(text): #opens the file and reads file. 
+    """ 
+    input: cleaned text file
+
+
+    output: dictionary or 
+    """
+
 
     word_dict = {}
     
@@ -15,13 +22,13 @@ def word_counter(text): #opens the file and reads file.
     
     for word in words:
         
-        if word not in word_dict:
+        if word not in word_dict: # --> Think about collections - counter on this
             word_dict[word] = 1
         else:
             word_dict[word] = word_dict[word] + 1    
     
-    for key in sorted(word_dict, key = word_dict.get, reverse = False):
-            print "%s: %s" % (key, word_dict[key]) #if i return this, it only prints one line
+    # for key in sorted(word_dict, key = word_dict.get, reverse = False):
+    #         print "%s: %s" % (key, word_dict[key]) #if i return this, it only prints one line
             
     return word_dict
 
