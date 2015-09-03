@@ -7,6 +7,7 @@ from wordlists.gender_words import MALE_WORDS, FEMALE_WORDS
 from collections import defaultdict
 
 
+
 def word_counter(text): #opens the file and reads file. 
     """ 
     input: cleaned text file
@@ -18,7 +19,7 @@ def word_counter(text): #opens the file and reads file.
 
     word_dict = {}
     
-    words = text.lower().split() #splits the text into separate words
+    words = text.split() #splits the text into separate words
     
     for word in words:
         
@@ -33,9 +34,9 @@ def word_counter(text): #opens the file and reads file.
     return word_dict
 
 
-def gender(clean_text, gender_words_set):
+def gender(clean_text):
     
-    #gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
+    gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
     gender_dict = defaultdict(int)
     words = clean_text.split()
     

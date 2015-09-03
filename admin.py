@@ -22,10 +22,9 @@ def main():
         text_name = 'data/' + afile #-->  see below for suggestion on being more efficient
         text = read_file(text_name)
         clean_text = remove_punc_html(text)
-        # count_words = word_counter(clean_text)
-        gender_words_set = MALE_WORDS.union(FEMALE_WORDS) # ->> Could you do this in gender.py? 
+        # count_words = word_counter(clean_text) 
         print "This is the gender dict for " + text_name 
-        print gender(clean_text, gender_words_set)
+        print gender(clean_text)
         print "Sum of male gendered words, Sum of female gendered words:"
         print both_genders(clean_text)
         print "Gender ratio in this book is:"

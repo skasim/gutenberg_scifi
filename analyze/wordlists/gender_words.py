@@ -20,6 +20,5 @@ FEMALE_WORDS=set(['heroine','spokeswoman','chairwoman',"women's",'actress','wome
 	'priestess','princess','queens','she','sister','sisters','waitress',
 	'widow','widows','wife','wives','woman'])
 
-
 if __name__ == '__main__':
 	print MALE_WORDS, FEMALE_WORDS
