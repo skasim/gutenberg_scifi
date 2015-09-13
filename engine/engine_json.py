@@ -10,7 +10,7 @@ import json
 #/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.pyc
 import os
 
-json_dict = {
+python_dict = {
     "id": 1,
     "name": "A green door",
     "price": 12.50,
@@ -18,22 +18,22 @@ json_dict = {
 }
 filename = "test.json"
 
+
 #### Create JSON Engine
 
 def create_json(filename):
     'creates json file'
     if os.path.isfile(filename):
         print "file exists"
-        pass
     else:
         with open (filename, "w") as f:
             print "creating file"
             pass
             
-def write_json(filename, json_dict):
+def write_json(filename, python_dict):
     "writes json object"
     with open (filename, "w") as filename:
-        data = json.dump(json_dict, filename)
+        data = json.dump(python_dict, filename)
         
     return "written to file"
     
@@ -86,13 +86,14 @@ def read_json(key):
     
 
 
-def write_dict_json(json_dict):
+def write_dict_json(python_dict):
     'writes python dictionaries (key-value) into json object'
     
     data = load_json(filename)
-    json_dict[new_k] = [new_v]
+    python_dict[new_k] = [new_v]
     #print data
-    print json_dict
+    print python_dict
+
 
 ##### Data Store (json) engine
 
@@ -115,13 +116,13 @@ def json_write_engine(python_dict):
 
 
 create_json(filename)
-write_json(filename, json_dict)
+write_json(filename, python_dict)
 load_json(filename)
 key = "name"
 read_json(key)
 new_k ="color"
 new_v = "blue"
-write_dict_json(json_dict)
+write_dict_json(python_dict)
 
 if __name__ == '__main__':
     assert 1+1
