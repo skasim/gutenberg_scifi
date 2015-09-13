@@ -70,8 +70,7 @@ def read_json(key):
     '''
     
 #     if key in filename:
-#         print key
-#         
+#         print key 
 #     else:
 #         print "False"
 #     
@@ -80,8 +79,8 @@ def read_json(key):
     
     if key in data:
         print key, data[key]
-    
     else: 
+        
         return None
     
 
