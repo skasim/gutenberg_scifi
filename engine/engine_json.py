@@ -36,10 +36,7 @@ def write_json(filename, python_dict):
         data = json.dump(python_dict, filename)
         
     return "written to file"
-    
-    
-        #with open("firstlevel_urls.txt", 'w+') as f:
-        #data = json.dump(url_list, f)  
+     
 
 def load_json(filename):
     "loads json object"
@@ -68,12 +65,7 @@ def read_json(key):
     else returns, None / False
 
     '''
-    
-#     if key in filename:
-#         print key 
-#     else:
-#         print "False"
-#     
+         
     data = load_json(filename)
     
     
@@ -90,7 +82,7 @@ def write_dict_json(python_dict):
     
     data = load_json(filename)
     python_dict[new_k] = [new_v]
-    #print data
+    
     print python_dict
 
 
@@ -103,6 +95,9 @@ def json_read_engine(python_dict):
     Checks for key in datastore and returns value, else returns none
 
     """
+    create_json(filename)
+    
+    write_dict_json(python_dict)
 
 def json_write_engine(python_dict):
     """
@@ -111,7 +106,13 @@ def json_write_engine(python_dict):
     Checks for for key in datastore, if yes updates key-values, otherwise adds new key-value
 
     """
-
+    create_json(filename)
+    datastore = read_json(key)
+    
+    if datastore != None:
+        pass
+    else:
+        write_dict_json(python_dict)
 
 
 create_json(filename)
