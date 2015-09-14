@@ -109,10 +109,10 @@ def json_write_engine(python_dict):
     create_json(filename)
     datastore = read_json(key)
     
-    if datastore != None:
-        pass
-    else:
+    if datastore == None:
         write_dict_json(python_dict)
+    else:
+        python_dict[key] = [new_v]
 
 
 create_json(filename)
