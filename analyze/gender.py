@@ -28,13 +28,12 @@ def word_counter(text): #opens the file and reads file.
         else:
             word_dict[word] = word_dict[word] + 1    
     
-    # for key in sorted(word_dict, key = word_dict.get, reverse = False):
-    #         print "%s: %s" % (key, word_dict[key]) #if i return this, it only prints one line
             
     return word_dict
 
 
 def gender(clean_text):
+    "returns one dictionary of male and female gendered words"
     
     gender_words_set = MALE_WORDS.union(FEMALE_WORDS)
     gender_dict = defaultdict(int)
@@ -49,6 +48,7 @@ def gender(clean_text):
      
 
 def both_genders(clean_text):
+    "returns the count of male and female gendered words in a tuple"
 
     male_dict = defaultdict(int)
     female_dict = defaultdict(int)
@@ -63,9 +63,10 @@ def both_genders(clean_text):
     male_sum = sum(male_dict.values())
     female_sum = sum(female_dict.values())
     
-    return male_sum, female_sum #did you want it to be more like ((male sum: X), (female sum:Y)). i am not sure i know how to do that
-
+    return male_sum, female_sum 
+    
 def gender_ratio(clean_text):
+    "returns the ratio of male gendered word to female gendered words"
     
     gender_sums = both_genders(clean_text)
     male_sum, female_sum = gender_sums

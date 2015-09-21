@@ -10,6 +10,7 @@ from nltk.corpus import stopwords
 
 
 def read_file(filename):
+    "reads file and returns the text"
     
     with open(filename, 'r+') as file_ref:
           
@@ -18,6 +19,7 @@ def read_file(filename):
     return text
     
 def remove_punc_html(text):
+    "removes punctuation and letters in lower case and returns clean text"
    
     exclude = set(string.punctuation)
     text = BeautifulSoup(text, "html.parser").findAll(text = True)

@@ -1,7 +1,7 @@
 #!/usr/bin/python -tt
 
 """
-Gender words for HW
+Gender words 
 """
 
 
