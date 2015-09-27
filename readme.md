@@ -11,8 +11,10 @@ science fiction on Project Gutenberg.
 
 ## To Set Up
 
-first pip install requirements into a virtualenv called scifi
+pip install requirements into a virtualenv called scifi
+pip install gutenberg
+
 
 ## To Run
 
-Run in terminal by **admin.py**
+Run in terminal by **admin_gender.py**

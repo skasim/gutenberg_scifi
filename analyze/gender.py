@@ -7,13 +7,12 @@ from wordlists.gender_words import MALE_WORDS, FEMALE_WORDS
 from collections import defaultdict
 
 
-
 def word_counter(text): #opens the file and reads file. 
     """ 
     input: cleaned text file
 
 
-    output: dictionary or 
+    output: dictionary
     """
 
 

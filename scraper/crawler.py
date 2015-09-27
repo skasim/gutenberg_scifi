@@ -4,9 +4,11 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import csv
 
 BASE_URL = "https://www.gutenberg.org/wiki/Science_Fiction_(Bookshelf)"
 filename = "gutenberg_bookshelf.txt"
+csvfile = "gutenbergscifi.csv"
 
 
 def make_soup(BASE_URL):
@@ -51,14 +53,22 @@ def read_write_file(filename):
         
         return data
 
+def write_csv(data):
+    
+    with open("gutenbergscifi.csv", "a") as f:
+        author, title, url = data
+        row = author + ";" + title + ";" + url + "\n"
+        f.write(row) 
 
+    
 def extract_text_urls(html):
-    'extracts bookname, urls, and author'
+    'extracts bookname and urls'
     
     soup = make_soup(BASE_URL)
     author = "n/a"
     #soup = read_write_file(filename) #<---why doesn't this work
     
+    #for li in soup.findAll('li'):#, class_= "extiw"):
     for h3 in soup.findAll('h3'):
         try:
             h3.a['title']
@@ -68,13 +78,32 @@ def extract_text_urls(html):
         for li in soup.findAll('li'):
             try:
                 try:
+#                     print li.a['href'], li.a['title'], li.a.contents[0], author
+#                     print "\n"
                     url = li.a['href']
                     title = li.a.contents[0]
-                    print url, title, author #if i use return it only returns 1 line
+                    data = author, title, url.replace("//www.gutenberg.org/ebooks/","")
+                    return data###<----why does this only print out 1 line
+                    try:
+                        write_csv(data)
+                    except UnicodeEncodeError:
+                        pass
                 except KeyError:
                     pass
             except TypeError:
                 pass
+
+
+def open_csv(csvfile):
+    'opens and reads csv file and returns a list'
+     
+    with open(csvfile,"r") as f:
+        text = csv.reader(f, delimiter =";")
+        book_list = list(text)
+    
+    return book_list
+    
+        
 
 
 if __name__ == '__main__':
