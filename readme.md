@@ -18,3 +18,14 @@ pip install gutenberg
 ## To Run
 
 Run in terminal by **admin_gender.py**
+
+## To Do
+
+To Do:
+1. Check to see if csv  file exists already. if yes, skip to step 4. if no, go to step 2 and 3 [done]
+2. Go to Project Gutenberg scifi bookshelf [done]
+3. Scrape form the bookshelf the names, title, and urls of all scifi books and add them to a csv file [done]
+4. Access and read the csv file [done]
+5. For reach url in the file access the book text using the gutenberg module [done]
+6. Read each text and identify the male-female gendered words ratio [done]
+7. Add the {author:{title, ratio} to json data source
