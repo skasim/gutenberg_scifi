@@ -7,6 +7,7 @@ import json
 #print json.__file__
 #/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.pyc
 import os
+import collections
 
 #json_filename = "gendered_words.json"
 
@@ -30,6 +31,7 @@ def load_json(json_filename):
     
 def create_json(json_filename):
     "creates json file"
+    
     with open (json_filename, "w") as json_file:
         print "creating file"
         data = {}
@@ -62,6 +64,12 @@ def read_write_json_object(json_filename=None, key=None, value=None, READ=False,
     if WRITE:
         if data.get(key):
             print "%s key already present" % key
+            if value in data.values():
+                print "%s  value already present" %value
+            else:
+                data[key].append(value)
+                print "new value added to existing key"
+                write_json(json_filename, data)
         else:
             data.update({key: value})
             print "key added"
@@ -70,7 +78,8 @@ def read_write_json_object(json_filename=None, key=None, value=None, READ=False,
         return data.get(key, None)
     else:
         print "pick read or write"
-        raise Exception("fix me") 
+        raise Exception("fix me")
+    
 
     #What if a value needs to be updated?
     # This is a good attempt, it's evident that you're building a great understanding of functions and variables
