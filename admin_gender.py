@@ -49,7 +49,7 @@ def main():
         #gender_dict[author]=[title],[ratio]
         print gender_dict
         
-        #data = write_json(json_filename, gender_dict)
+
         json_source = read_write_json_object(json_filename="gendered_words.json", key=key, value=value, READ=False, WRITE=True)
         
         

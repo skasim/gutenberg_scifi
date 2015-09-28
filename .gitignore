@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-*.pyc
-=======
 *.pyc
 /scifi/
->>>>>>> 38b5003c172cb7764554d6f31bb72ab9680cce11
+*.ipynb

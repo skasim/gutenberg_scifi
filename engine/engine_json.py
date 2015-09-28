@@ -53,7 +53,6 @@ def load_or_create_json(json_filename):
 #### Read / Write of keys into json object
 """
    Checks if json datastore is created, if not creates it
-
    Checks for for key in datastore, if yes updates key-values, otherwise adds new key-value
 """
 
