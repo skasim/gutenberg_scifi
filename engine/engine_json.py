@@ -56,29 +56,29 @@ def load_or_create_json(json_filename):
    Checks for for key in datastore, if yes updates key-values, otherwise adds new key-value
 """
 
-def read_write_json_object(json_filename=None, key=None, value=None, READ=False, WRITE=False):
+def read_write_json_object(json_filename=None, uber_key=None, uber_value=None, sub_value=None, sub_key=None, READ=False, WRITE=False):
 
     data = load_or_create_json(json_filename)
     
     if WRITE:
-        if data.get(key):
-            print "%s key already present" % key
-            if value in data.values():
-                print "%s  value already present" %value
+        if data.get(uber_key):
+            print "%s key already present" % uber_key
+            if uber_value in data.values():
+                print "%s  value already present" % uber_value
             else:
-                data[key].append(value)
+                #data[uber_key].append(uber_value)
+                data[uber_key][sub_key] = [sub_value]
                 print "new value added to existing key"
                 write_json(json_filename, data)
         else:
-            data.update({key: value})
+            data.update({uber_key: uber_value})
             print "key added"
             write_json(json_filename, data)
     elif READ:
-        return data.get(key, None)
+        return data.get(uber_key, None)
     else:
         print "pick read or write"
-        raise Exception("fix me")
-    
+        raise Exception("fix me")   
 
     #What if a value needs to be updated?
     # This is a good attempt, it's evident that you're building a great understanding of functions and variables

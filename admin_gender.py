@@ -29,8 +29,6 @@ def main():
     
     print book_list
     
-    gender_dict = {}
-    
     for i in range(len(book_list)):
         
         a = int(book_list[i][2]) # a = book number
@@ -43,15 +41,12 @@ def main():
         ratio = gender_ratio(clean_text)
         
         print author, title, ratio
-        key = author
-        value = title, ratio
-        #gender_dict[key]=[value]
-        #gender_dict[author]=[title],[ratio]
-        print gender_dict
-        
+        uber_key = author
+        sub_key = title
+        sub_value = ratio
+        uber_value = {sub_key:sub_value}
 
-        json_source = read_write_json_object(json_filename="gendered_words.json", key=key, value=value, READ=False, WRITE=True)
-        
+        json_source = read_write_json_object(json_filename="gendered_words.json", uber_key=uber_key, uber_value=uber_value, sub_key=sub_key, sub_value=sub_value, READ=False, WRITE=True)
         
         
         
