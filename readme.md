@@ -28,4 +28,6 @@ To Do:
 4. Access and read the csv file [done]
 5. For reach url in the file access the book text using the gutenberg module [done]
 6. Read each text and identify the male-female gendered words ratio [done]
-7. Add the {author:{title, ratio} to json data source
+7. Add the {author:{title, ratio} to json data source[done]
+8. Test code with larger data set
+9. Build a web app with Flask

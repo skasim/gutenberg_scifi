@@ -12,7 +12,7 @@ from wrangle.read import remove_punc_html
 from analyze.gender import gender_ratio
 from engine.engine_json import load_or_create_json
 from engine.engine_json import write_json
-#from engine.engine_json import read_write_json_object
+from engine.engine_json import read_write_json_object
 
 def main():
     filename = "gutenbergscifi.csv"
@@ -29,12 +29,9 @@ def main():
     
     print book_list
     
-    gender_dict = {}
-    
     for i in range(len(book_list)):
         
         a = int(book_list[i][2]) # a = book number
-        print a
         author = book_list[i][0]
         title = book_list[i][1]
         text = strip_headers(load_etext(a)).strip()
@@ -44,17 +41,14 @@ def main():
         ratio = gender_ratio(clean_text)
         
         print author, title, ratio
-        key = author
-        value = {title, ratio}
-        gender_dict[key]=[value]
-        print gender_dict
+        uber_key = author
+        sub_key = title
+        sub_value = ratio
+        uber_value = {sub_key:sub_value}
+
+        json_source = read_write_json_object(json_filename="gendered_words.json", uber_key=uber_key, uber_value=uber_value, sub_key=sub_key, sub_value=sub_value, READ=False, WRITE=True)
         
-        #data = write_json(json_filename, gender_dict)
-        #json_file = load_or_create_json(json_filename)
-        
-        
-        
-        
+    
     
 ### TO DO:
 
