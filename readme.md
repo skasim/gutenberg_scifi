@@ -11,9 +11,10 @@ science fiction on Project Gutenberg.
 
 ## To Set Up
 
+```
 - pip install requirements into a virtualenv called scifi
 - pip install gutenberg
-
+```
 
 ## To Run
 
