@@ -69,7 +69,10 @@ def gender_ratio(clean_text):
     
     gender_sums = both_genders(clean_text)
     male_sum, female_sum = gender_sums
-    gender_ratio = round(male_sum/female_sum,2)
+    try:
+        gender_ratio = round(male_sum/female_sum,2)
+    except ZeroDivisionError:
+        gender_ratio = "division by zero"
     
     return gender_ratio
 

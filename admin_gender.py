@@ -29,12 +29,17 @@ def main():
     
     print book_list
     
-    for i in range(len(book_list)):
+    for i, value in enumerate(book_list):
+        #print i, value
         
         a = int(book_list[i][2]) # a = book number
+        print i, a
         author = book_list[i][0]
         title = book_list[i][1]
-        text = strip_headers(load_etext(a)).strip()
+        try:
+            text = strip_headers(load_etext(a)).strip()
+        except ValueError:
+            pass
         #print text  
         
         clean_text = remove_punc_html(text)

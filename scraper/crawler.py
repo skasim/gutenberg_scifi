@@ -13,10 +13,10 @@ csvfile = "gutenbergscifi.csv"
 
 def make_soup(BASE_URL):
     'requests html from gutenberg bookshelf page'
-    
+        
     r = requests.get(BASE_URL, verify = False)
     soup = BeautifulSoup(r.text, 'html.parser')
-    
+
     return soup
 
 def write_file(soup):
@@ -65,7 +65,7 @@ def extract_text_urls(html):
     'extracts bookname and urls'
     
     soup = make_soup(BASE_URL)
-    author = "n/a"
+    author = "none, none"
     #soup = read_write_file(filename) #<---why doesn't this work
     
     #for li in soup.findAll('li'):#, class_= "extiw"):
@@ -78,12 +78,10 @@ def extract_text_urls(html):
         for li in soup.findAll('li'):
             try:
                 try:
-#                     print li.a['href'], li.a['title'], li.a.contents[0], author
-#                     print "\n"
                     url = li.a['href']
                     title = li.a.contents[0]
                     data = author, title, url.replace("//www.gutenberg.org/ebooks/","")
-                    return data###<----why does this only print out 1 line
+                    print data###<----why does this only print out 1 line
                     try:
                         write_csv(data)
                     except UnicodeEncodeError:
@@ -97,7 +95,7 @@ def extract_text_urls(html):
 def open_csv(csvfile):
     'opens and reads csv file and returns a list'
      
-    with open(csvfile,"r") as f:
+    with open(csvfile,"rU") as f:
         text = csv.reader(f, delimiter =";")
         book_list = list(text)
     
