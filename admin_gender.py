@@ -53,14 +53,6 @@ def main():
 
         json_source = read_write_json_object(json_filename="gendered_words.json", uber_key=uber_key, uber_value=uber_value, sub_key=sub_key, sub_value=sub_value, READ=False, WRITE=True)
         
-    
-    
-### TO DO:
-
-# It's a bit slow since we need to instantiate the NLTK stopwords model each time.
-# Can we be more efficient and check if we have already processed this?
-# We need to create a data store (precursor to database) for dict-like objects (ie json)
-# See engine/ for stubs of functions
 
 
 if __name__ == '__main__':

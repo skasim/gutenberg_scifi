@@ -4,7 +4,6 @@
 
 from gutenberg.acquire import load_etext
 from gutenberg.cleanup import strip_headers
-from scraper.cralwer import get_book_text
 
 def get_book_text(csvfile):
     'gets text for book using project gutenberg catalog'

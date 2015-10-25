@@ -23,10 +23,11 @@ def remove_punc_html(text):
    
     exclude = set(string.punctuation)
     text = BeautifulSoup(text, "html.parser").findAll(text = True)
-    text = [word.lower() for word in text if word not in exclude]
-    text = ' '.join(word for word in text if word not in stopwords.words('english'))
-    #the above is removing stopwords, not sure if there is a more efficient way to write this out
-    #is this correct: split() splits a string by the white space into an item in a list and x.join, joins an item into a string at x[or whatever else is there]
+    
+    text = [letter.lower() for word in text for letter in word if letter not in exclude]
+    text = ''.join(word for word in text)
+    #text = [word.lower() for word in text if word not in exclude]
+    #text = ' '.join(word for word in text if word not in stopwords.words('english'))
     #rewrite as class
     return text
     

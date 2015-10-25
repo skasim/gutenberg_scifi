@@ -109,11 +109,10 @@ if __name__ == '__main__':
     
     
 """
-Note on the Project Gutenberg HTML page
+Note on the Project Gutenberg HTML page:
+
 DON'T USE THIS PAGE FOR SCRAPING.
-
 Seriously. You'll only get your IP blocked.
-
 Download http://www.gutenberg.org/feeds/catalog.rdf.bz2 instead,
 which contains *all* Project Gutenberg metadata in one RDF/XML file.
 """
