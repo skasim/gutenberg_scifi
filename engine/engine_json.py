@@ -80,15 +80,6 @@ def read_write_json_object(json_filename=None, uber_key=None, uber_value=None, s
         print "pick read or write"
         raise Exception("fix me")   
 
-    #What if a value needs to be updated?
-    # This is a good attempt, it's evident that you're building a great understanding of functions and variables
-    # I recommend you practice passing in variables into the function example: function(var1, var2, var3=None)
-    # This will make your code much easier to read and recycle later on for other projects. 
-    # You won't need to worry about global variables such as new_k or new_v not being there and breaking things.
-
-    # For both the read and write methods of the json_engine, I recommend that you think about your helper functions and
-    # designing them to reduce your workload (and amount of code to write). We can review this. =)
-
 
 
 if __name__ == '__main__':
