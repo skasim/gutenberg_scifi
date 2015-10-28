@@ -15,7 +15,7 @@ MALE_WORDS=set(['guy','spokesman','chairman',"men's",'men','him',"he's",'his',
 FEMALE_WORDS=set(['heroine','spokeswoman','chairwoman',"women's",'actress','women',
 	"she's",'her','aunt','aunts','bride','daughter','daughters','female',
 	'fiancee','girl','girlfriend','girlfriends','girls','goddess',
-	'granddaughter','grandma','grandmother','herself','ladies','lady',
+	'granddaughter','grandma','grandmother','grandmothers','herself','ladies','lady',
 	'lady','mom','moms','mother','mothers','mrs','ms','niece','nieces',
 	'priestess','princess','queens','she','sister','sisters','waitress',
 	'widow','widows','wife','wives','woman'])

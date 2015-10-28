@@ -31,7 +31,7 @@ def open_file(files): #downloads the book from Project Guttenburg and writes to 
 def open_several_files(files):
     
     for afile in files:
-        open_file(afile) #is open_file a python term for opening a file?
+        open_file(afile)
 
     return [text_name for url, text_name in files]
     
