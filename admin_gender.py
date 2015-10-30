@@ -49,7 +49,7 @@ def main():
         uber_key = author
         sub_key = title
         sub_value = ratio
-        uber_value = {sub_key:sub_value}
+        uber_value = {author: {title:ratio}}
 
         json_source = read_write_json_object(json_filename="gendered_words.json", uber_key=uber_key, uber_value=uber_value, sub_key=sub_key, sub_value=sub_value, READ=False, WRITE=True)
         
