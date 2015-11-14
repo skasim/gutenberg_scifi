@@ -77,11 +77,20 @@ print test_extracting_book_test(csvfile)
 # 7 18846 \
 # None" == test_extracting_book_test(csvfile)
 
+import unittest
+
+def fun(x):
+    return x + 1
+
+class MyTest(unittest.TestCase):
+    def test(self):
+        self.assertEqual(fun(3), 4)
+
 
 class TestMethods(unittest.TestCase):
 
   def test_gender_dict(self):
-      self.assertEqual(test_counting_words(text),31)
+      self.assertEqual(test_counting_words(text), 31)
 
 """
 Male gendered: 6
