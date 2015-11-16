@@ -1,10 +1,14 @@
+#!/usr/bin/python
+# analyze gendered words
+
 import unittest
 
 from analyze.gender import gender_ratio
 from analyze.gender import word_counter
 from analyze.gender import both_genders
-
 from scraper.ingest import open_several_files
+from wrangle.read import remove_punc_html
+
 
 def fun(x):
     return x + 1
@@ -13,7 +17,7 @@ class TestBase(unittest.TestCase):
     
     def test_addition_plus_one(self):
         self.assertEqual(fun(3), 4)
-
+        
     def setUp(self):
         print 'In setUp()'
         self.text = """<h1>She was lifting weights while he was sewing clothes. His wife noticed that \
@@ -23,33 +27,24 @@ class TestBase(unittest.TestCase):
         ['https://www.gutenberg.org/cache/epub/42/pg42.html', 'dr_JEKYLL.txt']
         ]
         self.files = open_several_files(self.files)
-
-    def tearDown(self):
-        print 'In tearDown()'
-        del self.fixture
-
-    def test(self):
-        print 'in test()'
-        self.failUnlessEqual(self.fixture, range(1, 10))
-
-
-
+        
 class TestAnalyzeGender(TestBase):
     def test_gender_ration(self):
         ratio = gender_ratio(self.text)
         self.assertEqual(ratio, 2)
         self.assertEqual(ratio, 2.0)
         self.assertEqual(type(ratio), type(1.0) )
-
-
+        
     def test_word_counter(self):
         count = word_counter(self.text)
         self.assertIsInstance(count, dict)
         self.assertEqual(count['was'], 5)
         self.assertEqual(len(count), 27)
-
-    # def test_both_genders(self):
-    #     pass    
+        
+    def test_both_genders(self):
+        clean_text = remove_punc_html(self.text)
+        gender_tuple = both_genders(clean_text)
+        self.assertEqual(gender_tuple, (6,5))
 
 class TestFixtures(TestBase):
 
@@ -66,8 +61,6 @@ class TestOpenFiles(TestBase):
 
 
 
-
 if __name__ == '__main__':
     print 'hello'
-
-    print len(word_counter(text))
+    
